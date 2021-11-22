@@ -1,0 +1,19 @@
+
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: #6f39b0 ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;    
+}
+
+@import 'Scss_Components/contactForm.scss';
+@import 'Scss_Components/questionnaire.scss';
+@import 'Scss_Components/modal.scss';
