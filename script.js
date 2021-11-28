@@ -353,7 +353,7 @@ questionBtn.innerText = 'Отправить';
 
 questionForm.addEventListener('submit', (event)=>{                   
     event.preventDefault(); 
-    section.style.backgroundImage = "url('https://acegif.com/wp-content/gifs/udachi-6.gif')"
+    section.style.background = " no-repeat center/100% url('https://acegif.com/wp-content/gifs/udachi-6.gif') "
 
     modal4.innerText = `${labInp1.innerText}  ${questionInp1.value}`;
     modal5.innerText = `${labInp2.innerText}  ${questionInp2.value}`;
