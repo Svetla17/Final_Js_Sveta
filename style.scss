@@ -4,16 +4,24 @@
     box-sizing: border-box;
 
 }
+body{
+    margin: 0;
+    padding: 0;
+}
 
-body {
+.section {
     background-color: #6f39b0 ;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    margin: 0;    
+    margin: 0; 
+    // background-image: url(https://acegif.com/wp-content/gifs/udachi-8.gif)
+    
 }
 
 @import 'Scss_Components/contactForm.scss';
 @import 'Scss_Components/questionnaire.scss';
 @import 'Scss_Components/modal.scss';
+
+

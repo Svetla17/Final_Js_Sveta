@@ -1,11 +1,17 @@
 import "./style.css";
 import "./style.scss";
 
+
 // Первый блок -  форма регистрации пользователя
+
+const section = document.createElement('div');
+section.className = 'section';
+document.body.prepend(section);
+
 
 const divForm = document.createElement('div');
 divForm.className = 'container';
-document.body.prepend(divForm);
+section.prepend(divForm);
 
 
 const contFormName = document.createElement('h2');
@@ -40,7 +46,7 @@ contactFirstName.setAttribute('type', 'text');
 contactFirstName.setAttribute('placeholder', 'Имя пользователя');
 contactFirstName.setAttribute('pattern', '[a-zA-ZА-Яа-я]+');
 contactFirstName.required = true;
-// contactFirstName.setAttribute('value', '');
+contactFirstName.setAttribute('value', '');
 contactFirstName.focus();
 
 let labLname = document.createElement('label');
@@ -82,11 +88,11 @@ contactBtn.innerText = 'Продолжить';
 
 let finishBtn = document.createElement('button');
 finishBtn.className = 'finish_btn'
-document.body.prepend(finishBtn);
+section.prepend(finishBtn);
 
 let newBtn = document.createElement('button');
 newBtn.className = 'finish_btn'
-document.body.prepend(newBtn);
+section.prepend(newBtn);
 
 
 contactForm.addEventListener('submit', (event) => {                   
@@ -94,18 +100,30 @@ contactForm.addEventListener('submit', (event) => {
     modal1.innerText = `${labFname.innerText}  ${contactFirstName.value}`;
     modal2.innerText = `${labLname.innerText}  ${contactLastName.value}`;
     modal3.innerText = `${labAge.innerText}  ${contactAge.value}`;
-});  
+}); 
+
     
 
-let person = localStorage.getItem('person'); 
+let person = localStorage.getItem('user');
+person = JSON.parse(person)
+
 
 if (person){   
     divForm.style.display = 'none';    
     finishBtn.style.display = 'block';
     newBtn.style.display = 'block';  
-    finishBtn.textContent = `Продолжить как ${person}`;
+    finishBtn.textContent = `Продолжить как ${person[0]}`;
     newBtn.textContent = `Ввести данные о себе снова`;
-    
+
+    finishBtn.addEventListener('click', () =>{ 
+        modal1.innerText = `${labFname.innerText}  ${person[0]}`;
+        modal2.innerText = `${labLname.innerText}  ${person[1]}`;
+        modal3.innerText = `${labAge.innerText}  ${person[2]}`;       
+        finishBtn.style.display = 'none';
+        newBtn.style.display = 'none'; 
+        divQuestion.style.display = 'block';      
+        
+    })         
 
     newBtn.addEventListener('click', () =>{          
         localStorage.clear();
@@ -114,26 +132,22 @@ if (person){
         newBtn.style.display = 'none'; 
         
          
-        }) 
-        
-    finishBtn.addEventListener('click', () =>{         
-        finishBtn.style.display = 'none';
-        newBtn.style.display = 'none'; 
-        divQuestion.style.display = 'block'; 
-        
-    })       
+    })        
+    
                                                      
 } else {
     contactForm.addEventListener('submit', (event) => {                   
         event.preventDefault(); 
-        let user = `${contactFirstName.value} ${contactLastName.value}`;   
-        localStorage.setItem('person', user);   
+        let user = [contactFirstName.value, contactLastName.value, contactAge.value];        
+        localStorage.setItem('user', JSON.stringify(user));       
         divForm.style.display = 'none';       
         contactForm.reset();
-        divQuestion.style.display = 'block';        
+        divQuestion.style.display = 'block'; 
+               
         
-    } 
-)};
+    }                       
+          
+)};   
 
 
 // Второй  блок - опросник.
@@ -339,9 +353,8 @@ questionBtn.innerText = 'Отправить';
 
 questionForm.addEventListener('submit', (event)=>{                   
     event.preventDefault(); 
-    modal1.innerText = `${labFname.innerText}  ${person}`;
-    modal2.innerText = `${labLname.innerText}  ${contactLastName.value}`;
-    modal3.innerText = `${labAge.innerText}  ${contactAge.value}`;
+    section.style.backgroundImage = "url('https://acegif.com/wp-content/gifs/udachi-6.gif')"
+
     modal4.innerText = `${labInp1.innerText}  ${questionInp1.value}`;
     modal5.innerText = `${labInp2.innerText}  ${questionInp2.value}`;
     modal6.innerText = `${labInp3.innerText}  ${num.value}`;
@@ -394,7 +407,7 @@ modalClose.innerText = '×'
 const modalHeader = document.createElement('h2');
 modalHeader.className = 'modal-header';
 modalClose.after(modalHeader);
-modalHeader.innerText = 'Поздравляем, Bы прошли опрос!'
+modalHeader.innerText = 'Анкетирование завершено, проверьте Ваши ответы.'
 
 const modalResult = document.createElement('div');
 modalResult.className = 'modal-result';
@@ -447,10 +460,22 @@ modalResult.after(modalFooter);
 const modalBtn = document.createElement('button');
 modalFooter.append(modalBtn);
 modalBtn.className = 'modal-btn';
-modalBtn.innerText = 'Нажмите на кнопку!';
+modalBtn.innerText = 'Исправить';
 
 modalClose.onclick = function() {
     modal.style.display = "none";
+    section.style.display = "none";
+    
+ 
 }
+
+modalBtn.onclick = function() {
+    modal.style.display = "none";
+    localStorage.clear();
+    window.location.reload();
+
+}
+
+
 
 
