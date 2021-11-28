@@ -1,0 +1,101 @@
+// #myBtn {
+//     background-color: #afe6ad;
+//     color: white;
+//     padding: 12px 16px;
+//     font-size: 18px;
+//     font-weight: bold;
+//     border: none;
+//     cursor: pointer;
+//     width: 180px;
+//   }
+  
+  
+  .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      padding-top: 100px; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.4); 
+  }
+  
+  
+  .modal-content {
+      position: relative;
+      background-color: #e1f8d7;
+      margin: auto;
+      padding: 0;
+      border: 5px solid #bdec71;
+      width: 50%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: 0.4s;
+      animation-name: animatetop;
+      animation-duration: 0.4s
+  }
+  
+  
+  @-webkit-keyframes animatetop {
+      from {top:-300px; opacity:0} 
+      to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+      from {top:-300px; opacity:0}
+      to {top:0; opacity:1}
+  }
+  
+  
+  .close {
+      color: rgb(5, 5, 5);
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  
+  .modal-header {
+      padding: 2px 15px;
+      background-color: #eaf3e7;
+      color: rgb(26, 21, 21);
+      font-size: 2.5rem;
+      text-align: center;
+  }
+  
+  .modal-result {
+      
+      padding: 2px 16px;}
+  
+  .modal-footer {
+      padding: 22px 16px;
+      background-color: #9C27B0;
+      color: white;
+  }
+
+  .modal-btn{
+  background-color: #afe6ad;
+      color: white;
+      padding: 12px 16px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      width: 180px;
+  }
+
+ .modal_description {
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 600 ;
+  }
