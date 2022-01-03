@@ -8,17 +8,17 @@
     "build": "webpack",
     "start": "npx webpack serve --mode=development",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -b gh-pages -d build" 
 
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Final_Js_Sveta.git"
+    "url": "https://github.com/Svetla17/Final_Js_Sveta.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Svetla17/Final_Js_Sveta/issues"
+    "url": "https://github.com/Svetla17/Final_Js_Sveta.git"
   },
   "devDependencies": {
     "css-loader": "^6.5.1",
