@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
-  "homepage": "https://github.com/Svetla17/Final_Js_Sveta",
+  "homepage": "https://Svetla17.github.io/Final_Js_Sveta",
   "scripts": {
     "build": "webpack",
     "start": "npx webpack serve --mode=development",
